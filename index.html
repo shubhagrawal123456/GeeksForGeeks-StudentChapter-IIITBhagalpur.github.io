@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="GFG-IIIT-Bhagalpur,  GFG, GeeksforGeeks Society, GeeksforGeeks Student Chapter of IIIT-Bhagalpur, Best GeeksforGeeks Student Chapter, GeeksforGeeks">
+    <meta name="description" content="We are the GeeksforGeeks  Student Chapter,
+    Indian Institute of Information Technology, Bhagalpur (GFG-IIITBHG).
+    GeeksforGeeks Society of IIIT,Bhagalpur has 8 core team members and was introduced in 2020.">
+    <title>GFG-IIIT Bhagalpur</title>
+    <link rel='shortcut icon' type='image/x-icon' href='media/gfg-logo.jpg' />
+    <!-- <link rel="stylesheet" href="css/loader.css"> -->
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        
+        .loader-container {
+            margin-top: -8vh;
+            z-index: 99;
+            background: #260ff1;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        #loader-text {
+            position: absolute;
+            font-family: 'Open Sans';
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            left: 50%;
+            top: 58%;
+            margin-left: -20px;
+        }
+        
+        .loader {
+            z-index: 99;
+            position: absolute;
+            top: 50%;
+            margin-left: -50px;
+            left: 50%;
+            animation: speeder .4s linear infinite;
+        }
+        
+        .loader>span {
+            height: 5px;
+            width: 35px;
+            background: #000;
+            position: absolute;
+            top: -19px;
+            left: 60px;
+            border-radius: 2px 10px 1px 0;
+        }
+        
+        .base span {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 6px solid transparent;
+            border-right: 100px solid #000;
+            border-bottom: 6px solid transparent;
+        }
+        
+        .base span:before {
+            content: "";
+            height: 22px;
+            width: 22px;
+            border-radius: 50%;
+            background: #000;
+            position: absolute;
+            right: -110px;
+            top: -16px;
+        }
+        
+        .base span:after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-top: 0 solid transparent;
+            border-right: 55px solid #000;
+            border-bottom: 16px solid transparent;
+            top: -16px;
+            right: -98px;
+        }
+        
+        .face {
+            position: absolute;
+            height: 12px;
+            width: 20px;
+            background: #000;
+            border-radius: 20px 20px 0 0;
+            transform: rotate(-40deg);
+            right: -125px;
+            top: -15px;
+        }
+        
+        .face:after {
+            content: "";
+            height: 12px;
+            width: 12px;
+            background: #000;
+            right: 4px;
+            top: 7px;
+            position: absolute;
+            transform: rotate(40deg);
+            transform-origin: 50% 50%;
+            border-radius: 0 0 0 2px;
+        }
+        
+        .loader>span>span:nth-child(1),
+        .loader>span>span:nth-child(2),
+        .loader>span>span:nth-child(3),
+        .loader>span>span:nth-child(4) {
+            width: 30px;
+            height: 1px;
+            background: #000;
+            position: absolute;
+            animation: fazer1 .2s linear infinite;
+        }
+        
+        .loader>span>span:nth-child(2) {
+            top: 3px;
+            animation: fazer2 .4s linear infinite;
+        }
+        
+        .loader>span>span:nth-child(3) {
+            top: 1px;
+            animation: fazer3 .4s linear infinite;
+            animation-delay: -1s;
+        }
+        
+        .loader>span>span:nth-child(4) {
+            top: 4px;
+            animation: fazer4 1s linear infinite;
+            animation-delay: -1s;
+        }
+        
+        @keyframes fazer1 {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -80px;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fazer2 {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -100px;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fazer3 {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -50px;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes fazer4 {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: -150px;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes speeder {
+            0% {
+                transform: translate(2px, 1px) rotate(0deg);
+            }
+            10% {
+                transform: translate(-1px, -3px) rotate(-1deg);
+            }
+            20% {
+                transform: translate(-2px, 0px) rotate(1deg);
+            }
+            30% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+            50% {
+                transform: translate(-1px, 3px) rotate(-1deg);
+            }
+            60% {
+                transform: translate(-1px, 1px) rotate(0deg);
+            }
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+            80% {
+                transform: translate(-2px, -1px) rotate(1deg);
+            }
+            90% {
+                transform: translate(2px, 1px) rotate(0deg);
+            }
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+        
+        .longfazers {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .longfazers span {
+            position: absolute;
+            height: 2px;
+            width: 20%;
+            background: #000;
+        }
+        
+        .longfazers span:nth-child(1) {
+            top: 20%;
+            animation: lf .6s linear infinite;
+            animation-delay: -5s;
+        }
+        
+        .longfazers span:nth-child(2) {
+            top: 40%;
+            animation: lf2 .8s linear infinite;
+            animation-delay: -1s;
+        }
+        
+        .longfazers span:nth-child(3) {
+            top: 60%;
+            animation: lf3 .6s linear infinite;
+        }
+        
+        .longfazers span:nth-child(4) {
+            top: 80%;
+            animation: lf4 .5s linear infinite;
+            animation-delay: -3s;
+        }
+        
+        @keyframes lf {
+            0% {
+                left: 200%;
+            }
+            100% {
+                left: -200%;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes lf2 {
+            0% {
+                left: 200%;
+            }
+            100% {
+                left: -200%;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes lf3 {
+            0% {
+                left: 200%;
+            }
+            100% {
+                left: -100%;
+                opacity: 0;
+            }
+        }
+        
+        @keyframes lf4 {
+            0% {
+                left: 200%;
+            }
+            100% {
+                left: -100%;
+                opacity: 0;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+
+<body>
+    <div id="page-loader" class="loader-container">
+        <div class='loader'>
+            <span>
+                <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            </span>
+            <div class='base'>
+                <span></span>
+                <div class='face'></div>
+            </div>
+        </div>
+        <div class='longfazers'>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1 id="loader-text">Loading</h1>
+    </div>
+    <div class="main-container" id="main-container">
+        <div class="navbar-container">
+            <nav class="navbar navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="#" class="navbar-brand"> <img src="media/gfg-logo.jpg" width="80px" height="70px" alt="">
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="main-navbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="events.html">EVENTS</a></li>
+                            <li><a href="members.html">MEMBERS</a></li>
+                            <!-- <li><a href="" target="_blank">BLOG</a></li> -->
+                            <!-- <li><a class="active-page" href="">ACHIEVEMENTS</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="carousel slide" id="main-carousel" data-ride="carousel">
+            <!-- <ol class="carousel-indicators"> -->
+            <!-- <li data-target="#main-carousel" data-slie-to="0" class="active"></li> -->
+            <!-- <li data-target="#main-carousel" data-slie-to="1"></li> -->
+            <!-- <li data-target="#main-carousel" data-slie-to="1"></li> -->
+            <!-- </ol> -->
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="carousel-1">
+                        <div>
+                            <h1 class="carousel-title" id="carousel-title"> GFG-BHG</h1>
+                        </div>
+                        <div class="carousel-anim-container">
+                            <div class="anim-text"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="item">
+                    <div class="carousel-2">
+                        <h1 class="carousel-title" id="carousel2-title">  </h1>
+                        <a href=""><button class="learn-more-btn btn bg-primary">Learn
+                                More</button></a>
+                    </div>
+                </div> -->
+                <!-- <div class="item">
+                    <div class="carousel-3">
+                        <h1 class="carousel-title" id="carousel3-title"> </h1>
+                        <a href=""><button class="learn-more-btn btn bg-primary">Learn
+                                More</button></a>
+                    </div>
+                </div> -->
+            </div>
+
+            <!-- <a href="#main-carousel" data-slide="prev" class="left carousel-control nav-carousel-left">
+                <div class="nav-carousel">
+                    <div class="nav-carousel-1"></div>
+                    <div class="nav-carousel-2"></div>
+                    <div class="nav-carousel-3">
+                        <div class="carousel-icon">
+                            <div>
+                                <<<</div> </div> </div> </div> <span class="sr-only">Previous</span>
+            </a>
+            <a href="#main-carousel" data-slide="next" class="right carousel-control">
+                <div class="nav-carousel">
+                    <div class="nav-carousel-3">
+                        <div class="carousel-icon">
+                            <div>>>></div>
+                        </div>
+                    </div>
+                    <div class="nav-carousel-2"></div>
+                    <div class="nav-carousel-1"></div>
+                </div>
+                <span class="sr-only">Next</span>
+            </a> -->
+        </div>
+
+        <div id="mobile-carousel">
+            <div class="mobile-container" id="mob-carousel-1">
+                <div>
+                    <h1 id="carousel-title"> GFG-BHG</h1>
+                </div>
+                <div class="carousel-anim-container">
+                    <div class="anim-text-mob"></div>
+                </div>
+            </div>
+            <!-- <div class="mobile-container" id="mob-carousel-2">
+                <h1 class="carousel-title" id="carousel2-title">  </h1>
+                <br><a href="g"><button class="learn-more-btn btn bg-primary">Learn
+                        More</button></a>
+            </div>
+            <div class="mobile-container" id="mob-carousel-3">
+                <h1 class="carousel-title" id="carousel3-title">  </h1>
+                <br><a href=""><button class="learn-more-btn btn bg-primary">Learn
+                        More</button></a>
+            </div> -->
+        </div>
+
+        <div class="section" id="about">
+            <div class="section-title"><span>About Us</span></div>
+            <div class="section-row">
+                <div class="container">
+                    <p>We are the GeeksforGeeks Society, Student Chapter, IIIT-Bhagalpur (GFG-BHG). GeeksforGeeks Society of IIIT-Bhagalpur has 8 core team members and was introduced in 2020.
+                    </p><br>
+                    <p>We at GeeksforGeeks Student Chapter - IIIT-Bhagalpur (GFG-BHG) believe that communication and collaboration is what makes any community great. We believe to connect everyone who is #BornToCode.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="events">
+            <div class="section-title"><span>Events</span></div>
+            <div class="section-row">
+                <div class="events-container">
+                    <div class="event-container container odd-event">
+                        <div class="event-title"> <span> Webinar on Placement Preparation - 21th August, 2020 </span></div>
+                        <div class="event-body">
+                            <p>
+                                Webinar on Placement Preparation was organized by GFG-IIIT-BHG on the 21th of August, from 5pm to 6pm through on youtube channel of GFG-IIIT-Bhagalpur with over 200+ live participants. The webinar started with the felicitation of the guest speaker Mr.Shashi
+                                Bhushan Kumar, Tech-lead and Mentor at GeeksforGeeks, Ex-Adobe, Ex-Paytm Software Engineer. He reflected his profound knowledge on the topic. It was followed by a Q&A session. An interactive event ignited the inquisitiveness
+                                of participants. The team received highly appreciative feedback where most of the participants were eager for the next session.
+
+                            </p>
+                            <!-- <img class="event-image" src="/media/web1.jpeg" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#Webinar">Read More</a></div>
+                    </div>
+                    <hr>
+                    <div class="event-container container odd-event">
+                        <!-- <div class="event-container container even-event"> -->
+                        <div class="event-title"> <span> GEEKS GUIDANCE - 27th August, 2020 Onwards</span></div>
+                        <div class="event-body">
+                            <p>
+                                • Focus​: To create a Community in our college by mutually learning the problem solving skills in Data Structure and Algorithms by a daily set of problems in the subject and Weekly guidance including doubt clearances by faculties from GeeksForGeeks, Noida.<br>                                • About: The event is about providing the right kind of guidance for student’s keen on upholding their data structure and algorithms' concepts and problem solving skills in coding.<br> • Mode of organization: The platform
+                                for the guidance is YouTube Live Stream and the community engages in problem solving queries and discussions over Discord group created solely for this purpose.<br> • Date and Time​: The event is weekly in nature with a
+                                YouTube Live Session, Every Monday with 2 problems provided daily at 11am & 5pm respectively. The solutions are provided the next day. The doubts are dealt with on every Saturday through Youtube Live Session by GFG Noida
+                                faculties. The very first session was held on 27th August, 2020.
+                            </p>
+                            <!-- <img class="event-image" src="./media/" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#GEEKSGUIDANCE">Read More</a></div>
+                    </div>
+                    <hr>
+                    <div class="event-container container odd-event">
+                        <!-- <div class="event-container container even-event"> -->
+                        <div class="event-title"> <span> QUIZ ON INSTAGRAM - 2th September, 2020 Onwards</span></div>
+                        <div class="event-body">
+                            <p>
+                                Every week after our DSA learning series, we organized quiz on Instagram on every Sunday. We give students some questions to test their knowledge on DSA. The questions are posted on our Instagram page in the form of Instagram quiz and the first person
+                                to answer the questions correctly is announced on the next day on our Instagram handle.
+                            </p>
+                            <!-- <img class="event-image" src="./media/" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#quizi">Read More</a></div>
+                    </div>
+                    <hr>
+                    <div class="event-container container odd-event">
+                        <!-- <div class="event-container container even-event"> -->
+                        <div class="event-title"> <span> THE CHOCOLATE PROBLEM - 10th September, 2020 Onwards</span></div>
+                        <div class="event-body">
+                            <p>
+                                A weekly problem specifically set by GFG problem setters to ensure that complete racking of your brain. A problem so demanding that solving it would definitely put you up in the category of top coders.
+                            </p>
+                            <!-- <img class="event-image" src="./media/" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#choco">Read More</a></div>
+                    </div>
+                    <hr>
+                    <div class="event-container container odd-event">
+                        <!-- <div class="event-container container even-event"> -->
+                        <div class="event-title"> <span> MEME MANIA- 20th September, 2020 </span></div>
+                        <div class="event-body">
+                            <p>
+                                The participants can send us their memes on various topics ranging from engineering life, programming memes, and many more. The Geek who contributes the most quality memes in a month will get a 200 bucks reward. The best memes would be featured on our
+                                Instagram Story and the creator would be tagged.
+                            </p>
+                            <!-- <img class="event-image" src="./media/" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#MEME">Read More</a></div>
+                    </div>
+                    <hr>
+                    <div class="event-container container odd-event">
+                        <!-- <div class="event-container container even-event"> -->
+                        <div class="event-title"> <span> GEEK-O-PEDIA  3rd October, 2020 </span></div>
+                        <div class="event-body">
+                            <p>
+                                1.The online quiz was conducted on Google Forms tested the geek in students. <br> 2.Duration: 10 minutes (20 questions)<br> Date: 3rd October <br> Time: 1:30 PM (immediately after Design Thinking & Innovation lecture)<br>                                3.Prizes for the first three winners would be <br> 1st position: ₹250 <br> 2nd position: ₹150 <br> 3rd position: ₹100 <br> 4.Also the winners will be getting Invitation code for PPC course on GeeksforGeeks. <br> 5.All the
+                                participants would be given 300RS Coupon code on all the courses of GeeksforGeeks.<br> 6.100+ students from second year participated in the quiz.<br>
+                            </p>
+                            <!-- <img class="event-image" src="./media/" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#GEEK-O-PEDIA">Read More</a></div>
+                    </div>
+                    <hr>
+                    <div class="event-container container odd-event">
+                        <!-- <div class="event-container container even-event"> -->
+                        <div class="event-title"> <span> CODE RUSH 4th October, 2020</span></div>
+                        <div class="event-body">
+                            <p>
+                                1.GFG_IIIT-Bhagalpur presents its very first coding competition "Code Rush". <br> 2.The contest would not only be helpful for your internships or placement preparation but will also give you a path to proceed further in
+                                your journey as a software engineer. <br> 3.Duration: 60 Minutes<br> Date: 4th October <br> Time: 4:00-5:00 PM<br> Platform: Hacker rank<br> 4.Prizes for the first three winners would be <br> 1st position: ₹250 <br> 2nd
+                                position: ₹150
+                                <br> 3rd position: ₹100 <br> 5.Also the winners will be getting Invitation code for PPC course on GeeksforGeeks. <br> 6.All the participants would be given 300RS Coupon code on all the courses of GeeksforGeeks.<br> 7.Students
+                                from second year participated in code rush.<br>
+                            </p>
+                            <!-- <img class="event-image" src="./media/" alt=""> -->
+                        </div>
+                        <div class="event-footer"><a href="events.html#CODERUSH">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section" id="postholders">
+            <div class="section-title"><span>Postholders</span></div>
+
+            <div class="section-row">
+                <div class="postholders-container">
+                    <div id="postholder-1" class="postholder-container">
+                        <img src="./media//members/pic6.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Chairperson<br> Technical Lead
+                            <br> Shubh Agrawal
+                        </div>
+                    </div>
+                    <div id="postholder-2" class="postholder-container">
+                        <img src="./media//members/pic1.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Logistics Head
+                            <br> Kumar Aryan
+                        </div>
+                    </div>
+                    <div id="postholder-3" class="postholder-container">
+                        <img src="./media//members/pic2.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Social Meadia Head
+                            <br> Harshit Shukla
+
+                        </div>
+                    </div>
+                    <div id="postholder-4" class="postholder-container">
+                        <img src="./media//members/pic3.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Treasurer
+                            <br> Anoop Raj
+                        </div>
+                    </div>
+                    <div id="postholder-5" class="postholder-container">
+                        <img src="./media//members/pic4.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Event Head
+                            <br> Shaksham Gupta
+                        </div>
+                    </div>
+                    <div id="postholder-6" class="postholder-container">
+                        <img src="./media//members/pic5.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Marketing Head
+                            <br> Amar Kumar
+                        </div>
+                    </div>
+                    <div id="postholder-7" class="postholder-container">
+                        <img src="./media//members/pic7.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Graphics Designer
+                            <br> Akash Keshari
+                        </div>
+                    </div>
+                    <div id="postholder-8" class="postholder-container">
+                        <img src="./media//members/pic8.jpg" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Secretary
+                            <br>Gokul Sankar
+                        </div>
+                    </div>
+                    <!--
+                    <div id="postholder-9" class="postholder-container">
+                        <img src="./media//members/91.png" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Design Head
+                            <br> Manish Sharma
+                        </div>
+                    </div>
+                    <div id="postholder-10" class="postholder-container">
+                        <img src="./media//members/101.png" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Design Co-Head
+                            <br> Mitali Tayal
+                        </div>
+                    </div>
+                    <div id="postholder-11" class="postholder-container">
+                        <img src="./media//members/1111.png" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Logistics Head
+                            <br> Siddharth Prabhu
+                        </div>
+                    </div>
+                    <div id="postholder-12" class="postholder-container">
+                        <img src="./media//members/71.png" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Events Head
+                            <br> Ritvik Gupta
+                        </div>
+                    </div>
+                    <div id="postholder-13" class="postholder-container">
+                        <img src="./media//members/41.png" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Marketing Head
+                            <br> Archit Mittal
+                        </div>
+                    </div>
+                    <div id="postholder-14" class="postholder-container">
+                        <img src="./media//members/51.png" alt="no image" class="postholder-img-container">
+                        <div class="img-caption">
+                            Marketing Co-Head
+                            <br> Tanay Parashar
+                        </div>
+                    </div>
+                -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section contact-section-even">
+        <div class="about-footer">
+            <div class="about-footer-title">
+                <h4>GFG-BHG</h4>
+                <hr>
+                <p>We are the GeeksforGeeks Student Chapter of IIIT-Bhagalpur, Bhagalpur (GFG-IIIT-Bhagalpur). GeeksforGeeks Student Chapter has 8 core team members and was introduced in 2020. </p>
+            </div>
+        </div>
+        <div class="follow-us">
+            <h4> Follow us on </h4>
+            <hr>
+            <ul>
+                <li>
+                    <a href="https://www.instagram.com/gfgstudentchapteriiitbhagalpur/"> <img src="./media/ins.png" alt="Instagram"></a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/shubh-agrawal-2892sa/"> <img src="./media/linked.png" alt="Linkedin"></a>
+                </li>
+                <li>
+                    <a href="https://github.com/shubhagrawal123456"><img src="./media/github-dark.png" alt=""></a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/GeeksForGeeks.Student.Chapter"><img src="./media/facebook.png" alt=""></a>
+                </li>
+            </ul>
+            <hr>
+            <div>
+                <h4> Contact us at </h4>
+                <a href="tel:9752175785">
+                    <p style="color:white">+91 975 217 5785 </p>
+                </a>
+            </div>
+        </div>
+
+        <div class="contact-us">
+            <div>
+                <h4> Where to find us </h4>
+                <p><img src="./media/blue-location.png" height="16px" width="16px" alt=""> Indian Institute of Information Technology, Bhagalpur, Sabour, Bihar Pincode:-813210</p>
+                <hr>
+            </div>
+            <div>
+                <h4> Email us at </h4>
+                <a class="email-link" href="mailto:shubhagrawal123456@gmail.com">
+                    <p> <img src="./media/gmail-logo.png" alt=""> shubhagrawal123456@gmail.com </p>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
