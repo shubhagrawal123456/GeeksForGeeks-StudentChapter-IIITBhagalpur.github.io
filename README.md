@@ -1,1 +1,1 @@
-Official website of GeeksforGeeks Society of Bennett University
+Official website of GeeksforGeeks Society of IIIT Bhagalpur.
